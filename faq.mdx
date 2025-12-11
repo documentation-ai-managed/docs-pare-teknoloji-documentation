@@ -1,0 +1,162 @@
+---
+title: Frequently Asked Questions
+description: Common queries and solutions for using Pare Teknoloji's documentation tools effectively.
+---
+
+## Overview
+
+Pare Teknoloji's documentation platform helps you create, organize, and maintain project docs with ease. You encounter common questions about account management, troubleshooting, and best practices. This page answers them directly with actionable steps.
+
+<Columns cols={3}>
+  <Card title="Account Management" icon="user" href="#account">
+    Manage your profile, teams, and permissions.
+  </Card>
+  <Card title="Troubleshooting Tips" icon="alert-triangle" href="#troubleshooting">
+    Resolve common issues quickly.
+  </Card>
+  <Card title="Best Practices" icon="check-circle" href="#best-practices">
+    Optimize your documentation workflow.
+  </Card>
+</Columns>
+
+<Tabs default-tab="1">
+  <Tab title="Account Management" icon="user">
+    
+## How do I reset my password?
+
+You receive an email with a secure reset link when you initiate the process.
+
+<Steps>
+  <Step title="Navigate to Login" icon="login">
+    Visit the Pare Teknoloji login page at `https://docs.pareteknoloji.com/login`.
+  </Step>
+  <Step title="Click Forgot Password" icon="key">
+    Enter your email address and submit.
+  </Step>
+  <Step title="Follow Email Link" icon="mail">
+    Check your inbox and click the reset link.
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+  Enable two-factor authentication (2FA) in your account settings for added security.
+</Callout>
+
+## Can I invite team members?
+
+Yes, you manage teams from the dashboard.
+
+<ExpandableGroup>
+  <Expandable title="Adding a New Team Member" default-open="true">
+    1. Go to **Teams** > **Members**.
+    2. Click **Invite**.
+    3. Enter their email and select role (`admin` or `editor`).
+  </Expandable>
+  <Expandable title="Role Permissions">
+    - `admin`: Full access, including billing.
+    - `editor`: Edit docs, no deletes.
+  </Expandable>
+</ExpandableGroup>
+
+  </Tab>
+
+  <Tab title="Troubleshooting Tips" icon="tool">
+
+## Why does my page fail to parse?
+
+MDX parsing errors often stem from unescaped special characters like `{` or `<`.
+
+<Callout kind="alert" show-icon="true">
+  Always wrap code-like text in backticks: `{API_KEY}` or `<Component>`.
+</Callout>
+
+<CodeGroup tabs="JavaScript,YAML">
+  ```javascript
+  // Wrong - causes parse error
+  const config = { key: "value" };
+
+  // Correct - use valid syntax
+  const config = { key: "value" };
+  ```
+  ```yaml
+  # Wrong frontmatter
+  ---
+  title: Page {with braces}
+  ---
+
+  # Correct
+  ---
+  title: "Page Title"
+  ---
+  ```
+</CodeGroup>
+
+## Page not updating after edits?
+
+Clear your browser cache or check the preview mode.
+
+<Steps>
+  <Step title="Force Refresh" icon="refresh-cw">
+    Press `Ctrl+Shift+R` (`Cmd+Shift+R` on macOS).
+  </Step>
+  <Step title="Check Preview" icon="eye">
+    Toggle between **Edit** and **Preview** modes.
+  </Step>
+  <Step title="Publish Changes" icon="upload">
+    Click **Publish** to deploy live.
+  </Step>
+</Steps>
+
+  </Tab>
+
+  <Tab title="Best Practices" icon="sparkles">
+
+## How do I structure MDX files effectively?
+
+Start every file with valid YAML frontmatter, then use H2 headings.
+
+```yaml
+---
+title: "Your Page Title"
+description: "Brief summary."
+---
+```
+
+## What components should I use?
+
+Follow the component guide for rich pages.
+
+| Component Type | Use Case | Example |
+| -------------- | -------- | ------- |
+| `<Tabs>` | Multi-platform instructions | OS-specific installs |
+| `<Steps>` | Tutorials | Onboarding flows |
+| `<CodeGroup>` | Multi-language code | JS vs Python |
+| `<Columns>` + `<Card>` | Feature grids | Quick navigation |
+| `<Callout>` | Tips & warnings | Limit to 1-2 per page |
+
+<Callout kind="success">
+  Use 5-8 diverse components per page to showcase capabilities.
+</Callout>
+
+## Managing Versions
+
+Tag releases with semantic versioning.
+
+<CodeGroup>
+  ```bash
+  # Create a new release
+  npm version patch
+  git push --tags
+  ```
+  ```bash
+  # Update changelog
+  npm run changelog
+  ```
+</CodeGroup>
+
+  </Tab>
+</Tabs>
+
+<Callout kind="info">
+  Need more help? Contact support at `support@pareteknoloji.com` or check the [community forum](https://community.pareteknoloji.com).
+</Callout>

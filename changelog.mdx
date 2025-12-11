@@ -1,0 +1,139 @@
+---
+title: Changelog
+description: Updates and improvements to Pare Teknoloji Documentation, highlighting new features and fixes.
+---
+
+## Recent Releases
+
+Stay current with the latest enhancements to Pare Teknoloji Documentation. You review changes here to understand new capabilities, performance improvements, and resolved issues. Each release includes detailed notes on features, fixes, and upgrade instructions.
+
+<Columns cols={3}>
+  <Card title="Upgrade Guide" icon="download" href="/docs/upgrading">
+    Follow steps to update your documentation site seamlessly.
+  </Card>
+  <Card title="Contributing" icon="github" href="/docs/contributing">
+    Help shape the future by submitting pull requests.
+  </Card>
+  <Card title="API Reference" icon="code" href="/docs/api">
+    Explore updated endpoints and parameters.
+  </Card>
+</Columns>
+
+<Callout kind="info">
+  Check your current version with `npx @pare-teknoloji/docs --version` before upgrading.
+</Callout>
+
+<Update label="2024-10-15" description="v1.2.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added support for custom brand colors via `theme.brandColor` in your config file.
+- Introduced `<Video>` component for embedding tutorials and demos.
+- Enabled Mermaid diagram rendering in all MDX pages.
+
+## Improvements
+
+- Enhanced performance of `Tabs` and `CodeGroup` components by 40%.
+- Better accessibility with ARIA labels on all interactive elements.
+
+## Bug Fixes
+
+- Fixed parsing errors in nested code blocks using 4 backticks.
+- Resolved issues with special character escaping in prose.
+
+</Update>
+
+<Update label="2024-09-20" description="v1.1.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- New `ParamField` and `ResponseField` components for API documentation.
+- Added `Update` component optimized for changelog pages.
+
+## Bug Fixes
+
+- Corrected heading hierarchy enforcement (no H1 in body content).
+- Fixed JSX attribute parsing for double-quoted strings only.
+
+</Update>
+
+<Update label="2024-08-10" description="v1.0.0" tags={["feature", "breaking"]}>
+
+## New Features
+
+- Initial release with core MDX components: `Steps`, `Tabs`, `Columns`, `Cards`.
+- Full support for Lucide icons in all components.
+- Integrated YAML frontmatter validation.
+
+## Breaking Changes
+
+- Removed legacy `<Mermaid>` component; use fenced `mermaid` code blocks instead.
+
+</Update>
+
+## Upgrade Instructions
+
+Follow these steps to update to the latest version.
+
+<Steps>
+  <Step title="Check Current Version" icon="info">
+    Run the version check command in your terminal.
+
+    ```bash
+    npx @pare-teknoloji/docs --version
+    ```
+  </Step>
+  <Step title="Install Latest" icon="download">
+    Update using your package manager.
+
+    <CodeGroup tabs="npm,yarn,pnpm">
+      ```bash
+      npm install @pare-teknoloji/docs@latest
+      ```
+      ```bash
+      yarn add @pare-teknoloji/docs@latest
+      ```
+      ```bash
+      pnpm add @pare-teknoloji/docs@latest
+      ```
+    </CodeGroup>
+  </Step>
+  <Step title="Rebuild Site" icon="refresh-cw">
+    Rebuild and restart your development server.
+
+    ```bash
+    npm run build
+    npm run dev
+    ```
+  </Step>
+</Steps>
+
+## Platform-Specific Notes
+
+<Tabs>
+  <Tab title="Node.js" icon="nodejs">
+    Requires Node.js `{>=18}`. Update your environment if needed.
+  </Tab>
+  <Tab title="Next.js" icon="nextjs">
+    Compatible with Next.js 14+. Add to your `next.config.js`:
+
+    ```javascript
+    const withMDX = require('@next/mdx')({
+      extension: /\.mdx?$/,
+    });
+    module.exports = withMDX({});
+    ```
+  </Tab>
+</Tabs>
+
+<Expandable title="Detailed Migration Guide" default-open="false">
+
+Review these changes if upgrading from v0.x:
+
+| Old Syntax | New Syntax | Reason |
+|------------|------------|--------|
+| `<Mermaid>` component | ````mermaid code block```` | Parsing reliability |
+| Single quotes in attributes | Double quotes only | JSX standard |
+| H1 headings | Start with H2 | Frontmatter title handling |
+
+</Expandable>

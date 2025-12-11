@@ -1,0 +1,118 @@
+---
+title: Getting Started with Pare Teknoloji
+description: A step-by-step guide to set up your first documentation space and begin organizing your projects.
+---
+
+## Overview
+
+Pare Teknoloji provides a powerful documentation platform to organize your project knowledge. You create structured spaces for teams, integrate with GitHub, and collaborate in real-time. This quickstart guides you through account creation, initial setup, and launching your first space. Complete these steps in under 10 minutes to start documenting.
+
+<Callout kind="info">
+  You need a valid email address and optional GitHub account for seamless integration.
+</Callout>
+
+## Prerequisites
+
+Before starting, ensure you have:
+- A modern browser like Chrome or Firefox
+- Node.js `{>=18}` (for CLI tools, optional)
+- Git installed (recommended for version control)
+
+## Setup Steps
+
+Follow these sequential steps to get up and running.
+
+<Steps>
+  <Step title="Create Your Account" icon="user-plus">
+    Visit [app.pareteknoloji.com/signup](https://app.pareteknoloji.com/signup) and enter your email, name, and password.
+
+    Verify your email via the confirmation link sent to your inbox.
+
+    <Callout kind="tip">
+      Use a work email for team invites later.
+    </Callout>
+  </Step>
+
+  <Step title="Complete Initial Setup" icon="settings">
+    Log in to the dashboard. Configure your profile and team settings.
+
+    Enable GitHub integration if desired:
+
+    <Tabs>
+      <Tab title="Browser" icon="globe">
+        Click "Connect GitHub" and authorize the app.
+      </Tab>
+      <Tab title="CLI" icon="terminal">
+        Install the CLI tool first:
+
+        <CodeGroup tabs="npm,yarn">
+```bash
+npm install -g @pare-teknoloji/cli
+```
+```bash
+yarn global add @pare-teknoloji/cli
+```
+        </CodeGroup>
+
+        Authenticate with:
+
+````bash
+pare-cli login --email your-email@example.com
+````
+
+        Follow the browser prompt to authorize.
+      </Tab>
+    </Tabs>
+  </Step>
+
+  <Step title="Create Your First Space" icon="folder-plus">
+    From the dashboard, click "New Space".
+
+    Name it `My Project Docs`, add a description like "Central hub for API and user guides", and select a color (`#3B82F6` for brand blue).
+
+    Invite team members via email.
+
+    Publish the space to generate your first shareable URL: `https://pareteknoloji.com/spaces/my-project-docs`.
+  </Step>
+</Steps>
+
+## Verify Your Setup
+
+Test by creating a sample page:
+
+```bash
+pare-cli space create-page --space "My Project Docs" --title "API Reference" --content "# Hello World"
+```
+
+Visit the space dashboard to confirm the page appears.
+
+## Next Steps
+
+Explore these resources to build out your documentation.
+
+<Columns cols={3}>
+  <Card title="Add Pages & MDX" icon="file-text" href="/docs/pages">
+    Structure content with MDX components and custom layouts.
+  </Card>
+
+  <Card title="Integrate GitHub" icon="github" href="/docs/github-sync">
+    Sync repos automatically for living documentation.
+  </Card>
+
+  <Card title="Team Collaboration" icon="users" href="/docs/collaboration">
+    Set permissions, comments, and version history.
+  </Card>
+</Columns>
+
+<Expandable title="Common Issues & Troubleshooting" default-open="false">
+  ### Login Fails
+  Clear browser cache or use incognito mode.
+
+  ### CLI Authentication Errors
+  Run `pare-cli logout` then retry login.
+
+  ### Space Not Visible
+  Check permissions in dashboard settings.
+</Expandable>
+
+Your Pare Teknoloji space is now ready. Add pages, embed code examples, and scale to multiple projects. For advanced features like custom domains, see the full docs.

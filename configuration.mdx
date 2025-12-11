@@ -1,0 +1,134 @@
+---
+title: Platform Configuration Options
+description: Explore customizable settings to tailor the documentation space to your team's needs.
+---
+
+## Overview
+
+Customize Pare Teknoloji Documentation to match your brand and workflows. Adjust themes, manage access, and set notifications through the admin dashboard. These options ensure your documentation space aligns with team requirements.
+
+<Columns cols={3}>
+  <Card title="Theme Customization" icon="palette" href="#theme-customization">
+    Modify colors, fonts, and layouts.
+  </Card>
+  <Card title="Access Controls" icon="shield" href="#access-controls">
+    Define user roles and permissions.
+  </Card>
+  <Card title="Notification Settings" icon="bell" href="#notification-settings">
+    Configure alerts for updates and activity.
+  </Card>
+</Columns>
+
+<Callout kind="tip">
+  Access all settings via the Admin > Configuration menu. Save changes to apply them site-wide.
+</Callout>
+
+## Quick Setup
+
+Follow these steps to configure your space initially.
+
+<Steps>
+  <Step title="Navigate to Settings" icon="settings">
+    Log in as admin and select **Admin** > **Configuration** from the sidebar.
+  </Step>
+  <Step title="Select Category" icon="list">
+    Choose **Theme**, **Access**, or **Notifications** from the tabs.
+  </Step>
+  <Step title="Apply Changes" icon="save">
+    Edit values and click **Save Configuration**. Refresh your browser to see updates.
+  </Step>
+</Steps>
+
+## Theme Customization
+
+Tailor the visual appearance to your brand. Set primary colors, logos, and typography.
+
+Use a configuration file like this for advanced theming:
+
+<CodeGroup tabs="JSON,YAML">
+```json
+{
+  "brandColor": "#3B82F6",
+  "logoUrl": "https://your-domain.com/logo.svg",
+  "fontFamily": "Inter, sans-serif",
+  "sidebarWidth": "280px"
+}
+```
+
+```yaml
+brandColor: "#3B82F6"
+logoUrl: "https://your-domain.com/logo.svg"
+fontFamily: "Inter, sans-serif"
+sidebarWidth: 280px
+```
+</CodeGroup>
+
+<Expandable title="Advanced Theme Options" default-open="false">
+  Enable dark mode with `"darkMode": { "enabled": true }`. Test changes in preview mode before saving.
+</Expandable>
+
+## Access Controls
+
+Manage who views and edits documentation. Define roles like Viewer, Editor, and Admin.
+
+<Tabs>
+  <Tab title="Viewer Role" icon="eye">
+    Read-only access.
+
+    | Permission | Allowed |
+    |------------|---------|
+    | View pages | Yes     |
+    | Edit content | No      |
+    | Manage users | No      |
+  </Tab>
+  <Tab title="Editor Role" icon="edit-3">
+    Edit existing pages.
+
+    | Permission | Allowed |
+    |------------|---------|
+    | View pages | Yes     |
+    | Edit content | Yes     |
+    | Manage users | No      |
+  </Tab>
+  <Tab title="Admin Role" icon="shield">
+    Full control.
+
+    | Permission | Allowed |
+    |------------|---------|
+    | View pages | Yes     |
+    | Edit content | Yes     |
+    | Manage users | Yes     |
+  </Tab>
+</Tabs>
+
+<Callout kind="alert">
+  Review access logs regularly. Restrict Admin roles to trusted team members.
+</Callout>
+
+## Notification Settings
+
+Stay informed about changes. Set up email, Slack, or in-app alerts.
+
+Configure via dashboard or JSON:
+
+```json
+{
+  "emailNotifications": {
+    "enabled": true,
+    "recipients": ["team@example.com"]
+  },
+  "slackWebhook": "https://your-webhook-url.com/slack/notify",
+  "activityTriggers": ["page-update", "user-login"]
+}
+```
+
+<ExpandableGroup>
+  <Expandable title="Email Templates">
+    Customize subjects and bodies under **Notifications** > **Templates**.
+  </Expandable>
+  <Expandable title="Slack Integration">
+    Paste your webhook URL. Test with **Send Test Notification**.
+  </Expandable>
+</ExpandableGroup>
+
+These configurations make your Pare Teknoloji space efficient and secure. Experiment in a staging environment first.
